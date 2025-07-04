@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure eVoting System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+        
+        .container {
+            text-align: center;
+            background-color: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            max-width: 500px;
+            width: 90%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        
+        .container.visible {
+            opacity: 1;
+        }
+        
+        .logo {
+            margin-bottom: 25px;
+        }
+        
+        h1 {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        p {
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .loader {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+        
+        .loader div {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #3498db;
+            animation: loader 1.2s linear infinite;
+        }
+        
+        .loader div:nth-child(1) {
+            top: 8px;
+            left: 8px;
+            animation-delay: 0s;
+        }
+        
+        .loader div:nth-child(2) {
+            top: 8px;
+            left: 32px;
+            animation-delay: -0.4s;
+        }
+        
+        .loader div:nth-child(3) {
+            top: 8px;
+            left: 56px;
+            animation-delay: -0.8s;
+        }
+        
+        .loader div:nth-child(4) {
+            top: 32px;
+            left: 8px;
+            animation-delay: -0.4s;
+        }
+        
+        .loader div:nth-child(5) {
+            top: 32px;
+            left: 32px;
+            animation-delay: -0.8s;
+        }
+        
+        .loader div:nth-child(6) {
+            top: 32px;
+            left: 56px;
+            animation-delay: -1.2s;
+        }
+        
+        .loader div:nth-child(7) {
+            top: 56px;
+            left: 8px;
+            animation-delay: -0.8s;
+        }
+        
+        .loader div:nth-child(8) {
+            top: 56px;
+            left: 32px;
+            animation-delay: -1.2s;
+        }
+        
+        .loader div:nth-child(9) {
+            top: 56px;
+            left: 56px;
+            animation-delay: -1.6s;
+        }
+        
+        @keyframes loader {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+        
+        .security-badge {
+            margin-top: 25px;
+            color: #27ae60;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .security-badge svg {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div id="loader-container" class="container">
+        <div class="logo">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L4 5V11C4 16.55 7.16 21.74 12 23C16.84 21.74 20 16.55 20 11V5L12 2ZM12 11.99H19C18.47 16.11 15.72 19.78 12 20.93V12H5V6.3L12 3.19V11.99Z" fill="#3498db"/>
+            </svg>
+        </div>
+        <h1>Secure eVoting System</h1>
+        <p>Please wait while we establish a secure connection to the voting platform</p>
+        <div class="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="security-badge">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1ZM12 11.99H19C18.47 16.11 15.72 19.78 12 20.93V12H5V6.3L12 3.19V11.99Z" fill="#27ae60"/>
+            </svg>
+            Encrypted & Secure
+        </div>
+    </div>
+    
+    <script>
+        // Make sure everything is loaded before showing animation and redirecting
+        document.addEventListener("DOMContentLoaded", function() {
+            // First make the container visible with a fade-in effect
+            const container = document.getElementById('loader-container');
+            
+            // Show the loader with fade-in effect
+            setTimeout(function() {
+                container.classList.add('visible');
+                
+                // Then start the timer for redirection after the loader is visible
+                setTimeout(function() {
+                    // Redirect to your actual app
+                    window.location.href = "https://script.google.com/macros/s/AKfycbz69GIi28T-NGZr_s25ymmKuAuScC8wW4kWwM1feXuLL91xCTg8UkqMOU_P-dzqOYM1/exec";
+                }, 3000); // Show loading for 3 seconds before redirecting
+            }, 100); // Small delay to ensure DOM is ready
+        });
+        
+        // Fallback in case DOMContentLoaded doesn't trigger for some reason
+        window.onload = function() {
+            const container = document.getElementById('loader-container');
+            if (!container.classList.contains('visible')) {
+                container.classList.add('visible');
+                setTimeout(function() {
+                    window.location.href = "https://script.google.com/macros/s/AKfycbz69GIi28T-NGZr_s25ymmKuAuScC8wW4kWwM1feXuLL91xCTg8UkqMOU_P-dzqOYM1/exec";
+                }, 3000);
+            }
+        };
+    </script>
+</body>
+</html>
